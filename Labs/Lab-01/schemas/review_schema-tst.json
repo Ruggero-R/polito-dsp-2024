@@ -1,0 +1,9 @@
+{
+    "$schema": "review_schema.json",
+    "filmId": 1,
+    "reviewerId": 12,
+    "completed": true,
+    "reviewDate": "2023-12-11",
+    "rating": 10,
+    "review": "Questa è una recensione"
+}

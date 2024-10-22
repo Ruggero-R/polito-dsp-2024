@@ -1,0 +1,58 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "id": "http://dsp.polito.it/labs/film_schema.json",
+    "title": "This is the schema for a film record",
+    "type": "object",
+    "properties": {
+        "id": {
+            "type": "integer"
+        },
+        "title": {
+            "type": "string"
+        },
+        "owner": {
+            "type": "integer"
+        },
+        "private": {
+            "type": "boolean"
+        },
+        "watchDate": {
+            "type": "string",
+            "format": "date"
+        },
+        "rating": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 10
+        },
+        "favorite": {
+            "type": "boolean"
+        }
+    },
+    "if": {
+        "properties": {
+            "watchDate": {
+                "type": "string"
+            },
+            "rating": {
+                "type": "integer"
+            },
+            "favorite": {
+                "type": "boolean"
+            }
+        }
+    },
+    "then": {
+        "properties": {
+            "private": {
+                "const": true
+            }
+        }
+    },
+    "required": [
+        "id",
+        "title",
+        "owner",
+        "private"
+    ]
+}

@@ -1,0 +1,42 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "id": "http://dsp.polito.it/labs/user_schema.json",
+    "title": "This is the schema for a review record",
+    "type": "object",
+    "properties": {
+        "filmId": {"type": "integer"},
+        "reviewerId": {"type": "integer"},
+        "completed": {"type": "boolean"},
+        "reviewDate": {"type": "string", "format": "date"},
+        "rating": {"type": "integer", "minimum": 0, "maximum": 10},
+        "review": {"type": "string", "maxLength": 1000}
+    },
+    "if": {
+        "properties": {
+            "completed": {
+                "const": true
+            }
+        }
+    }, 
+    "then": {
+        "required": [
+            "reviewDate",
+            "rating",
+            "review"
+        ]
+    },
+    "else": {
+        "not": {
+            "required": [
+                "reviewDate",
+                "rating",
+                "review"
+            ]
+        }
+    },
+    "required": [
+        "filmId",
+        "reviewerId",
+        "completed"
+    ]
+}

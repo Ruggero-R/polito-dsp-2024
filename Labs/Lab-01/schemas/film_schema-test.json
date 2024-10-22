@@ -1,0 +1,9 @@
+{
+    "$schema": "film_schema.json",
+    "id": 1,
+    "title": "The Lord of the Rings",
+    "owner": 1,
+    "private": true,
+    "watchDate": "2021-01-01",
+    "favorite": false
+}
